@@ -7,6 +7,7 @@ import Art from "@/app/molecules/Art";
 import ArtProps from "@/types/art";
 import ResponseResult from "@/types/response";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { AxiosResponse } from "axios";
 import { useEffect, useRef } from "react";
 
 /**
@@ -17,8 +18,9 @@ import { useEffect, useRef } from "react";
 */
 const ArtsListTemplate: React.FC<{ initial: ResponseResult<ArtProps>; }> = ({ initial }) => {
 	const endRef = useRef<HTMLDivElement>(null);
-	const query = useInfiniteQuery({
-		queryFn: ({ pageParam = initial.meta.offset }) => api.get("/arts", {
+	const query = useInfiniteQuery<AxiosResponse<ResponseResult<ArtProps>>>({
+		initialPageParam: initial.meta.offset || 0,
+		queryFn: ({ pageParam }) => api.get("/arts", {
 			params: {
 				offset: pageParam,
 				limit: initial?.meta?.limit
@@ -50,7 +52,7 @@ const ArtsListTemplate: React.FC<{ initial: ResponseResult<ArtProps>; }> = ({ in
 		return () => observer.disconnect();
 	}, [ query ]);
 
-	const items = query.data?.pages?.map(page => page.data.items).flat();
+	const items: ArtProps[] = query.data?.pages?.map?.(page => page.data.items)?.flat?.() || [];
 
 	return (
 		<Spin loading={query?.isLoading}>

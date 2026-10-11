@@ -7,6 +7,7 @@ import Game from "@/app/molecules/Game";
 import GameProps from "@/types/game";
 import ResponseResult from "@/types/response";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { AxiosResponse } from "axios";
 import { useEffect, useRef } from "react";
 
 /**
@@ -17,8 +18,9 @@ import { useEffect, useRef } from "react";
 */
 const GamesListTemplate: React.FC<{ initial: ResponseResult<GameProps>; }> = ({ initial }) => {
 	const endRef = useRef<HTMLDivElement>(null);
-	const query = useInfiniteQuery({
-		queryFn: ({ pageParam = initial.meta.offset }) => api.get("/games", {
+	const query = useInfiniteQuery<AxiosResponse<ResponseResult<GameProps>>>({
+		initialPageParam: initial?.meta?.offset || 0,
+		queryFn: ({ pageParam }) => api.get("/games", {
 			params: {
 				offset: pageParam,
 				limit: initial?.meta?.limit
@@ -50,7 +52,7 @@ const GamesListTemplate: React.FC<{ initial: ResponseResult<GameProps>; }> = ({ 
 		return () => observer.disconnect();
 	}, [ query ]);
 
-	const items = query.data?.pages?.map(page => page.data.items).flat();
+	const items: GameProps[] = query.data?.pages?.map?.(page => page.data.items)?.flat?.() || [];
 
 	return (
 		<Spin loading={query?.isLoading}>

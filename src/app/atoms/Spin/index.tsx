@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 
 const Spin: React.FC<{
-	children: React.ReactNode;
+	children?: React.ReactNode;
 	loading?: boolean;
 }> = ({
 	children,

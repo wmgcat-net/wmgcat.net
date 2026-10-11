@@ -8,7 +8,7 @@ interface ResponseResult<T> {
 		/** Limit */
 		limit: number;
 		/** Total */
-		total: number;
+		total?: number;
 	}
 }
 
