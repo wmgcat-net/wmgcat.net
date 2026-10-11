@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+	--clr-bg: #1e0528;
+	--clr-text: #fff0ff;
+}
+
+@theme {
+	--color-primary: #fff096;
+	--color-second: #acc656;
+	--color-danger: #f05064;
+	--color-back: var(--clr-bg);
+	--color-br: #3c285a;
+	--color-disabled: #e1cde1;
+	--color-text: var(--clr-text);
+  --font-roboto: "Roboto";
+}
+
+body {
+  background: var(--clr-bg);
+	color: var(--clr-text);
+}

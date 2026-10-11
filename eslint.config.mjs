@@ -3,18 +3,18 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 
 const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  globalIgnores([
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts"
-  ]),
+	...nextVitals,
+	...nextTs,
+	globalIgnores([
+		".next/**",
+		"out/**",
+		"build/**",
+		"next-env.d.ts"
+	]),
 	{
 		rules: {
 			"quotes": [
-				"warn",
+				"error",
 				"double",
 				{
 					avoidEscape: false,
@@ -22,15 +22,15 @@ const eslintConfig = defineConfig([
 				}
 			],
 			"array-bracket-spacing": [
-				"warn",
+				"error",
 				"always"
 			],
 			"object-curly-spacing": [
-				"warn",
+				"error",
 				"always"
 			],
 			"object-curly-newline": [
-				"warn",
+				"error",
 				{
 					ObjectPattern: {
 						minProperties: 2
@@ -38,7 +38,7 @@ const eslintConfig = defineConfig([
 				}
 			],
 			"max-lines": [
-				"warn",
+				"error",
 				{
 					max: 400,
 					skipBlankLines: true,
@@ -46,9 +46,10 @@ const eslintConfig = defineConfig([
 				}
 			],
 			"comma-dangle": [
-				"warn",
+				"error",
 				"never"
-			]
+			],
+			"no-tabs": "off"
 		}
 	}
 ]);

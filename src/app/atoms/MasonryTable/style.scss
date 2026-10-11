@@ -1,0 +1,13 @@
+.w-masonry {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+}
+
+.w-masonry-column {
+	width: 100%;
+	max-width: 200px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}

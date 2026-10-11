@@ -1,0 +1,31 @@
+import { Client } from "minio";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+interface MinioCustom {
+	/** Check if file exists */
+	checkFileExists: (bucketName: string, object: string) => Promise<boolean>;
+}
+
+type SubMinio = Client & MinioCustom;
+
+const minio = new Client({
+	endPoint: process.env.MINIO_URL || "localhost",
+	port: Number(process.env.MINIO_PORT || 9000),
+	useSSL: false,
+	accessKey: process.env.MINIO_ACCESS_KEY,
+	secretKey: process.env.MINIO_SECRET_KEY
+}) as SubMinio;
+
+minio.checkFileExists = async (bucketName: string, object: string): Promise<boolean> => {
+    try {
+      await minio.statObject(bucketName, object);
+    }
+    catch {
+			return false;
+		}
+    return true;
+}
+
+export default minio;
