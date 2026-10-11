@@ -1,5 +1,5 @@
-import apiGetArts from "../api/arts";
-import apiGetGames from "../api/games";
+import { apiServerGetArts } from "../api/arts";
+import { apiServerGetGames } from "../api/games";
 import HomeTemplate from "../templates/Home";
 
 /**
@@ -8,8 +8,8 @@ import HomeTemplate from "../templates/Home";
 export default async function Home() {
   return (
 		<HomeTemplate
-			arts={apiGetArts(0, 5)}
-			games={apiGetGames(0, 5)}
+			arts={apiServerGetArts(0, 5)}
+			games={apiServerGetGames(0, 5)}
 		/>
 	);
 }
