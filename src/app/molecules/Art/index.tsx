@@ -41,7 +41,7 @@ const Art: React.FC<ArtProps> = ({
 					/>
 				) : (
 					<img
-						src={`/storage/creatives/${id}/image.png`}
+						src={`/images/${id}/image.png`}
 						alt={author}
 						onError={() => setError(true)}
 					/>

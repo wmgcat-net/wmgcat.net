@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prepare": "husky"
+    "prepare": "husky",
+		"docker:bundle": "docker build --platform linux/amd64 -t registry.gitlab.com/wmgcat.net/wmgcat.net:latest . && docker push registry.gitlab.com/wmgcat.net/wmgcat.net:latest"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.104.1",

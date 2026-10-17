@@ -42,7 +42,7 @@ const Game: React.FC<GameProps> = ({
 					/>
 				) : (
 					<Image
-						src={`/storage/games/${id}/avatar.png`}
+						src={`/games/${id}/avatar.png`}
 						fill
 						alt={title}
 						onError={() => setError(true)}
