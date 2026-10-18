@@ -74,6 +74,14 @@ export default async function MS() {
 					</li>
 					<li>
 						<Link
+							href="/ms/privacy"
+							className="w-fit hover:underline cursor-pointer hover:opacity-60 text-xl"
+						>
+							Приватность
+						</Link>
+					</li>
+					<li>
+						<Link
 							href="/ms/contacts"
 							className="w-fit hover:underline cursor-pointer hover:opacity-60 text-xl"
 						>
