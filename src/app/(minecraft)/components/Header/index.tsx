@@ -1,4 +1,6 @@
+import Button from "@/app/atoms/Button";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header: React.FC = () => (
 	<div className="sticky top-0 flex flex-row gap-4 items-center justify-between bg-[#cfd5d6] border-b-2 border-b-[#3f4548] px-4 py-2 shadow-md w-full">
@@ -15,6 +17,16 @@ const Header: React.FC = () => (
 				<p className="text-default text-text!">Minecraft 26.3</p>
 			</div>
 		</div>
+		<Link href="/">
+			<Button variant="clear">
+				<Image
+					src="/logo.png"
+					alt="Home"
+					width={48}
+					height={48}
+				/>
+			</Button>
+		</Link>
 	</div>
 )
 

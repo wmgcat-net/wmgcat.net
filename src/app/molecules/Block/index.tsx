@@ -49,7 +49,7 @@ const Block = <T extends { id: number }, >({
 				</div>
 			)}
 			<div className="w-full flex flex-col">
-				<Spin loading={query?.isLoading}>
+				<Spin loading={!query?.isSuccess}>
 					<MasonryTable<T>
 						items={items}
 						render={render}
