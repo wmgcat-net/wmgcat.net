@@ -15,7 +15,7 @@ const ProfileBlock: React.FC = () => {
 		<div className="flex flex-col">
 			<Profile />
 			<Links />
-			<div className="grid grid-cols-3 gap-4 mt-8 items-start">
+			<div className="grid grid-cols-3 max-lg:grid-cols-2 gap-4 mt-8 items-start">
 				<Link
 					href="/articles/memorial"
 					className="h-full"
