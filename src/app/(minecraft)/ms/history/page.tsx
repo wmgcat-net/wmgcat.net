@@ -34,7 +34,7 @@ export default async function MSHistory() {
 				href="/ms"
 				className="w-fit hover:underline cursor-pointer hover:opacity-60 text-xl"
 			>
-				Назад
+				Back
 			</Link>
 			<p className="text-default text-[#f9c629]!">
 				2025 - 2026
@@ -47,8 +47,7 @@ export default async function MSHistory() {
 				className="w-full"
 			/>
 			<p className="text-default indent-8">
-				Сервер был создан в качестве новогоднего подарка для подписчиков,
-				чтобы весело провести время в новогодние каникулы.
+				A New Year&apos;s gift for our subscribers - a place to have fun together over the holidays.
 			</p>
 			<div className="grid grid-cols-2 gap-4 w-full">
 				<Image
@@ -67,10 +66,10 @@ export default async function MSHistory() {
 				/>
 			</div>
 			<p className="text-default text-white indent-8">
-					Мы смогли победить злого Санту, одолеть дракона и уничтожить Херобрина!
+				We took down Evil Santa, slayed the Ender Dragon, and vanquished Herobrine!
 			</p>
 			<p className="text-default text-[#f9c629]! text-center">
-				История этого мира только начинается...
+				This world&apos;s story is just beginning...
 			</p>
 		</>
 	);
