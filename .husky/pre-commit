@@ -9,8 +9,7 @@ npm run lint
 echo "Running OpenCode pre-commit review..."
 
 result=$(opencode run \
-  "Use the pre-commit-review skill to review staged changes. Return PASS as the first line if there are no actionable issues. Otherwise return BLOCK as the first line and explain the issues.")
-
+  "@code-review Проверь staged changes. Верни PASS первой строкой, если проблем нет, иначе BLOCK и список проблем.")
 printf '%s\n' "$result"
 
 case "$result" in
