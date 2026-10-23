@@ -1,1 +1,22 @@
+#!/bin/sh
+
+set -eu
+
+echo "Running check linter..."
 npm run lint
+
+
+echo "Running OpenCode pre-commit review..."
+
+result=$(opencode run \
+  "Use the pre-commit-review skill to review staged changes. Return PASS as the first line if there are no actionable issues. Otherwise return BLOCK as the first line and explain the issues.")
+
+printf '%s\n' "$result"
+
+case "$result" in
+  PASS*) ;;
+  *)
+    echo "Commit blocked by OpenCode review."
+    exit 1
+    ;;
+esac
