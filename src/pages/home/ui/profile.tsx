@@ -9,9 +9,9 @@ import Image from "next/image";
 const Profile: React.FC = () => {
 	return (
 		<header className="w-full pointer-events-none select-none">
-			<div className="relative w-full h-50 aspect-video rounded-4xl overflow-hidden">
+			<div className="relative w-full h-64 aspect-video rounded-4xl overflow-hidden">
 				<Image
-					src="/background.png"
+					src="/background.gif"
 					fill
 					alt="wmgcat background.png"
 				/>
