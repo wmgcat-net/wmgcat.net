@@ -8,13 +8,19 @@
 		"start": "next start",
 		"lint": "eslint",
 		"prepare": "husky",
-		"docker:bundle": "docker build --platform linux/amd64 -t registry.gitlab.com/wmgcat.net/wmgcat.net:latest . && docker push registry.gitlab.com/wmgcat.net/wmgcat.net:latest"
+		"docker:bundle": "docker build --platform linux/amd64 -t registry.gitlab.com/wmgcat.net/wmgcat.net:latest . && docker push registry.gitlab.com/wmgcat.net/wmgcat.net:latest",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:push": "drizzle-kit push",
+		"db:undo": "drizzle-kit drop"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.104.1",
 		"axios": "^1.20.0",
 		"dayjs": "^1.11.23",
 		"dotenv": "^18.0.6",
+		"drizzle-orm": "^0.45.4",
+		"drizzle-zod": "^0.8.3",
 		"ioredis": "^6.0.0",
 		"jose": "^6.2.12",
 		"mime-types": "^3.0.2",
@@ -26,9 +32,11 @@
 		"react-dom": "19.3.0",
 		"react-hook-form": "^7.89.0",
 		"react-icons": "^5.7.0",
-		"sass": "^1.105.1"
+		"sass": "^1.105.1",
+		"zod": "^4.6.7"
 	},
 	"devDependencies": {
+		"@next/env": "^16.4.3",
 		"@tailwindcss/turbopack": "^4",
 		"@types/mime-types": "^3.0.1",
 		"@types/node": "^20",
@@ -36,6 +44,7 @@
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"babel-plugin-react-compiler": "1.0.0",
+		"drizzle-kit": "^0.31.11",
 		"eslint": "^9",
 		"eslint-config-next": "16.4.0",
 		"husky": "^9.1.7",

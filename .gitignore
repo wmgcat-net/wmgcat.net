@@ -20,3 +20,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 global-bundle.pem
+migrations/
+staged-nolock.diff
+staged.diff
