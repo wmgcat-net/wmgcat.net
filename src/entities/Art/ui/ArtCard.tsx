@@ -48,7 +48,7 @@ const ArtCard: React.FC<Art> = ({
 					/>
 				) : (
 					<img
-						src={`/images/${id}/image.png`}
+						src={`/instances/${id}/image.png`}
 						alt={author}
 						onError={() => setError(true)}
 					/>

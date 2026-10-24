@@ -54,7 +54,7 @@ const GameCard: React.FC<Game> = ({
 					/>
 				) : (
 					<Image
-						src={`/games/${id}/avatar.png`}
+						src={`/instances/${id}/avatar.png`}
 						fill
 						alt={title}
 						onError={() => setError(true)}
