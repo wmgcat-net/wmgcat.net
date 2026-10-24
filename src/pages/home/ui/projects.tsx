@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
 						variant="clear"
 					>
 						<Image
-							src="/articles/memorial/banner.png"
+							src="https://wmgcat.s3.eu-north-1.amazonaws.com/articles/memorial/banner.png"
 							width={960}
 							height={540}
 							alt="Article: Memorial"

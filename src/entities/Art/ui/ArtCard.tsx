@@ -48,7 +48,7 @@ const ArtCard: React.FC<Art> = ({
 					/>
 				) : (
 					<img
-						src={`/instances/${id}/image.png`}
+						src={`https://wmgcat.s3.eu-north-1.amazonaws.com/instances/${id}/image.png`}
 						alt={author}
 						onError={() => setError(true)}
 					/>

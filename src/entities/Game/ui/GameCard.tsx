@@ -53,9 +53,8 @@ const GameCard: React.FC<Game> = ({
 						alt={title}
 					/>
 				) : (
-					<Image
-						src={`/instances/${id}/avatar.png`}
-						fill
+					<img
+						src={`https://wmgcat.s3.eu-north-1.amazonaws.com/instances/${id}/avatar.png`}
 						alt={title}
 						onError={() => setError(true)}
 					/>

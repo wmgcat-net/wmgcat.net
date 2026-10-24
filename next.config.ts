@@ -16,7 +16,16 @@ const nextConfig: NextConfig = {
   },
 	env: {
 		NEXT_PUBLIC_APP_VERSION: packageJson?.version
-	}
+	},
+	images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "wmgcat.s3.eu-north-1.amazonaws.com",
+        pathname: "/**"
+      }
+    ]
+  }
 };
 
 export default nextConfig;
