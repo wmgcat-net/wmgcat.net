@@ -1,0 +1,1 @@
+CREATE TYPE "public"."type" AS ENUM('game', 'art');

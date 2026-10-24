@@ -1,14 +1,14 @@
 import { loadEnvConfig } from "@next/env";
 import fs from "fs";
-import pg from "pg";
+import pg, { Client } from "pg";
 import path from "path";
 import { fileURLToPath } from "url";
-import { instances } from "./model/db-schema";
 import { drizzle } from "drizzle-orm/node-postgres";
+import { migrate } from "drizzle-orm/node-postgres/migrator";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 loadEnvConfig(process.cwd(), process.env.NODE_ENV !== "production");
 
-const db = new pg.Pool({
+const pool = new pg.Pool({
     host: process.env.PG_HOST,
     port: Number(process.env.PG_PORT),
     database: process.env.PG_DB,
@@ -20,11 +20,31 @@ const db = new pg.Pool({
     connectionTimeoutMillis: 5000,
 		ssl: process.env.PG_SSL == "true" && {
 			rejectUnauthorized: false,
-			ca: fs.readFileSync(path.resolve(__dirname, "../../global-bundle.pem"), "utf8")
+			ca: fs.readFileSync(path.resolve(__dirname, "../../../global-bundle.pem"), "utf8")
 		}
 });
 
-db.on("connect", () => console.log("CONENCTE"));
-db.on("error", (err: Error) => console.error("[db]", err.message));
+pool.on("connect", () => console.log("CONENCTE"));
+pool.on("error", (err: Error) => console.error("[db]", err.message));
 
-export default drizzle(db, { schema: instances });
+async function runMigration() {
+  const client = new Client({
+    connectionString: `postgresql://${process.env.PG_USER!}:${process.env.PG_PASS!}@${process.env.PG_HOST!}:${process.env.PG_PORT!}/${process.env.PG_DB!}`,
+    ssl: process.env.PG_SSL == "true" && {
+			rejectUnauthorized: false,
+			ca: fs.readFileSync(path.resolve(__dirname, "../../../global-bundle.pem"), "utf8")
+		}
+  });
+
+  await client.connect();
+  const db = drizzle(client);
+
+  console.log("Running migrations...");
+  await migrate(db, { migrationsFolder: "./migrations" });
+  console.log("Migrations completed successfully!");
+
+  await client.end();
+}
+
+runMigration().catch(console.error);
+export default drizzle(pool);
