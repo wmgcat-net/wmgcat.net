@@ -5,7 +5,7 @@ WORKDIR /app
 FROM base AS deps
 
 COPY package.json ./
-RUN npm i
+RUN npm i --force
 
 FROM base AS builder
 
@@ -23,5 +23,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=builder /app/drizzle.config.ts ./drizzle.config.ts
+COPY --from=builder /app/src/shared/api/model ./src/shared/api/model
+
 EXPOSE 3000
-CMD ["node", "server.js"]
+CMD ["sh", "-c", "exec node server.js"]

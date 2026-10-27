@@ -19,3 +19,17 @@ export const instances = pgTable("instances", {
 	links: jsonb("links").$type<Link[]>().default([]),
 	created_at: timestamp("created_at").defaultNow().notNull()
 });
+
+export const posts = pgTable("posts", {
+	id: serial("id").primaryKey(),
+	content: text("content"),
+	image: text("image"),
+	created_at: timestamp("created_at").defaultNow().notNull()
+});
+
+export const users = pgTable("users", {
+	id: serial("id").primaryKey(),
+	login: text("login").notNull(),
+	password: text("password").notNull(),
+	created_at: timestamp("created_at").defaultNow().notNull()
+});

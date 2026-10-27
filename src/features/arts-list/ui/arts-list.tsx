@@ -55,7 +55,12 @@ const ArtsList: React.FC<{
 		<Spin loading={query?.isLoading}>
 			<MasonryTable<Art>
 				items={items}
-				render={(data: Art) => <ArtCard {...data} />}
+				render={(data: Art) => (
+					<ArtCard 
+						{...data}
+						key={data.id}
+					/>
+				)}
 			/>
 			<Spin loading={query?.isFetchingNextPage} />
 			{fetchNext && <div ref={endRef} />}

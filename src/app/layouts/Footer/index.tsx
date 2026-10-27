@@ -1,19 +1,30 @@
 "use client";
 
 import { Button } from "@/shared/ui";
-import { LuArrowUp } from "react-icons/lu";
+import Link from "next/link";
+import { LuArrowUp, LuGithub } from "react-icons/lu";
 
 const Footer: React.FC<{ onUpClick?: () => void; }> = ({ onUpClick }) => {
 	return (
-		<footer className="pointer-events-none select-none flex justify-between items-center px-6 py-4 gap-4 rounded-t-4xl w-full z-1000 bg-back! transition-all">
-			<p className="text-xl font-extralight">v{process.env.NEXT_PUBLIC_APP_VERSION}</p>
-			<Button
-				variant="clear"
-				onClick={onUpClick}
-				className="pointer-events-auto"
-			>
-				<LuArrowUp />
-			</Button>
+		<footer className="flex justify-between items-center p-4 gap-4 w-full bg-back">
+			<p className="text-lg font-extralight">v{process.env.NEXT_PUBLIC_APP_VERSION}</p>
+			<div className="flex gap-4 items-center">
+				<Link
+					href="https://github.com/wmgcat-net/wmgcat.net"
+					target="_blank"
+				>
+					<Button variant="clear">
+						<LuGithub />
+					</Button>
+				</Link>
+				<Button
+					variant="clear"
+					onClick={onUpClick}
+					className="pointer-events-auto"
+				>
+					<LuArrowUp />
+				</Button>
+			</div>
 		</footer>
 	);
 };

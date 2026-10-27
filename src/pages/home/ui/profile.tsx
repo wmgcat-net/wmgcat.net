@@ -1,23 +1,19 @@
 "use client";
 import Image from "next/image";
-/**
- * Profile info
- *
- * @example
- * <Profile />
-*/
+import Links from "./links";
+
 const Profile: React.FC = () => {
 	return (
-		<header className="w-full pointer-events-none select-none">
-			<div className="relative w-full h-64 aspect-video rounded-4xl overflow-hidden">
+		<header className="w-full pointer-events-none select-none h-fit">
+			<div className="relative w-full h-64 rounded-4xl overflow-hidden">
 				<Image
 					src="/background.gif"
 					fill
 					alt="wmgcat background.png"
 				/>
 			</div>
-			<div className="relative md:left-8 bottom-12 flex items-end max-md:flex-col max-md:items-center">
-				<div className="w-24 aspect-square relative">
+			<div className="relative -mb-12 bottom-12 flex flex-col items-center">
+				<div className="w-28 aspect-square relative">
 					<Image
 						src="/avatar.png"
 						alt="wmgcat icon.png"
@@ -25,9 +21,12 @@ const Profile: React.FC = () => {
 						className="rounded-full border-6 border-back"
 					/>
 				</div>
-				<div className="relative md:top-7 flex flex-col bg-back rounded-2xl px-4 py-2 max-md:items-center">
-					<p className="text-primary font-bold text-2xl">wmgcat</p>
-					<p className="text-text text-xl">Web, Gamedev. Creator of 42Eng and IOY.APP</p>
+				<div className="flex flex-col gap-2 bg-back rounded-2xl px-4 py-2 items-center">
+					<p className="text-primary font-medium text-2xl">wmgcat</p>
+					<p className="text-text text-center text-xl">Web, Gamedev. Creator of 42Eng and IOY.APP</p>
+					<div className="w-75 max-w-full pointer-events-auto mt-4">
+						<Links />
+					</div>
 				</div>
 			</div>
 		</header>

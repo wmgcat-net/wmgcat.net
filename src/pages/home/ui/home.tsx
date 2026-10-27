@@ -7,28 +7,32 @@ import {
 import Link from "next/link";
 import { LuChevronRight } from "react-icons/lu";
 import Profile from "./profile";
-import Links from "./links";
 import Projects from "./projects";
 import GamesList from "@/features/games-list";
 import ArtsList from "@/features/arts-list";
+import PostsList from "@/features/posts-list";
 
-/**
- * Homepage
- *
- * @example
-* <Home />
-*/
 const Home: React.FC = () => (
 	<>
 		<Profile />
-		<Links />
 		<Projects />
+		<ContentBlock
+			title="Blog"
+			extend={(
+				<Link href="/blog">
+					<Button variant="clear">
+						<LuChevronRight />
+					</Button>
+				</Link>
+			)}
+		>
+			<PostsList count={3} />
+		</ContentBlock>
 		<ContentBlock
 			title="Games"
 			extend={(
 				<Link href="/games">
-					<Button variant="second">
-						More
+					<Button variant="clear">
 						<LuChevronRight />
 					</Button>
 				</Link>
@@ -40,8 +44,7 @@ const Home: React.FC = () => (
 			title="Arts"
 			extend={(
 				<Link href="/arts">
-					<Button variant="second">
-						More
+					<Button variant="clear">
 						<LuChevronRight />
 					</Button>
 				</Link>

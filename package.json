@@ -15,10 +15,15 @@
 		"db:undo": "drizzle-kit drop"
 	},
 	"dependencies": {
+		"@atproto/api": "^0.29.4",
+		"@aws-sdk/client-s3": "^3.1156.0",
+		"@hookform/resolvers": "^6.0.0",
 		"@tanstack/react-query": "^5.104.1",
+		"argon2": "^0.45.1",
 		"axios": "^1.20.0",
 		"dayjs": "^1.11.23",
 		"dotenv": "^18.0.6",
+		"drizzle-kit": "^0.31.11",
 		"drizzle-orm": "^0.45.4",
 		"drizzle-zod": "^0.8.3",
 		"ioredis": "^6.0.0",
@@ -33,8 +38,8 @@
 		"react-hook-form": "^7.89.0",
 		"react-icons": "^5.7.0",
 		"sass": "^1.105.1",
-		"zod": "^4.6.7",
-		"drizzle-kit": "^0.31.11"
+		"sharp": "^0.35.5",
+		"zod": "^4.6.7"
 	},
 	"devDependencies": {
 		"@next/env": "^16.4.3",

@@ -12,12 +12,6 @@ import {
 	SiTelegram
 } from "react-icons/si";
 
-/**
- * Social links
- *
- * @example
- * <Links />
-*/
 const Links: React.FC = () => {
 	return (
 		<div className="flex gap-4 flex-wrap justify-center items-center">
@@ -25,63 +19,56 @@ const Links: React.FC = () => {
 				href="https://github.com/wmgcat"
 				target="_blank"
 			>
-				<Button>
+				<Button variant="clear">
 					<SiGithub />
-					Github
 				</Button>
 			</Link>
 			<Link
 				href="https://bsky.app/profile/wmgcat.bsky.social"
 				target="_blank"
 			>
-				<Button>
+				<Button variant="clear">
 					<SiBluesky />
-					Bluesky
 				</Button>
 			</Link>
 			<Link
 				href="https://t.me/wmgcat"
 				target="_blank"
 			>
-				<Button>
+				<Button variant="clear">
 					<SiTelegram />
-					Telegram
 				</Button>
 			</Link>
 			<Link
 				href="https://www.deviantart.com/wmgcat"
 				target="_blank"
 			>
-				<Button>
+				<Button variant="clear">
 					<SiDeviantart />
-					DevianArt
 				</Button>
 			</Link>
 			<Link
 				href="https://wmgcat.newgrounds.com"
 				target="_blank"
 			>
-				<Button>
+				<Button variant="clear">
 					<SiNewgrounds />
-					Newgrounds
 				</Button>
 			</Link>
 			<Link
 				href="https://wmgcat.itch.io/"
 				target="_blank"
 			>
-				<Button>
+				<Button variant="clear">
 					<SiItchdotio />
-					Itch.io
 				</Button>
 			</Link>
 			<Link
 				href="https://www.pinterest.com/wmgcat"
 				target="_blank"
 			>
-				<Button>
+				<Button variant="clear">
 					<SiPinterest />
-					Pinterest
 				</Button>
 			</Link>
 		</div>

@@ -55,7 +55,12 @@ const GamesList: React.FC<{
 		<Spin loading={query?.isLoading}>
 			<MasonryTable<Game>
 				items={items}
-				render={(data: Game) => <GameCard {...data} />}
+				render={(data: Game) => (
+					<GameCard 
+						{...data}
+						key={data.id}
+					/>
+				)}
 			/>
 			<Spin loading={query?.isFetchingNextPage} />
 			{fetchNext && <div ref={endRef} />}

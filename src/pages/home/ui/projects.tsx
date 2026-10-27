@@ -1,73 +1,44 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/shared/ui";
+import { ContentBlock, Project } from "@/shared/ui";
 
-/**
- * Description
- *
- * @example
- * <Projects />
-*/
 const Projects: React.FC = () => {
 	return (
-		<div className="grid grid-cols-3 max-lg:grid-cols-2 gap-4 mt-8 items-start">
+		<ContentBlock title="Projects">
+			<div className="flex flex-col gap-4">
 				<Link
 					href="/articles/memorial"
 					className="h-full"
 				>
-					<Button 
-						className="flex flex-col! h-full! w-full! rounded-xl!"
-						variant="clear"
-					>
-						<Image
-							src="https://wmgcat.s3.eu-north-1.amazonaws.com/articles/memorial/banner.png"
-							width={960}
-							height={540}
-							alt="Article: Memorial"
-							className="w-full"
-						/>
-						Memorial
-					</Button>
+					<Project
+						title="Memorial"
+						description="All my old projects doesn&apos;t make to release"
+						image="https://wmgcat.s3.eu-north-1.amazonaws.com/articles/memorial/banner.png"
+					/>
 				</Link>
 				<Link
 					href="https://ioy.app"
 					target="_blank"
 					className="h-full"
 				>
-					<Button 
-						className="flex flex-col! h-full! w-full! rounded-xl!"
-						variant="clear"
-					>
-						<Image
-							src="/ioy_banner.png"
-							width={400}
-							height={300}
-							alt="ioy.app"
-							className="w-full"
-						/>
-						IOY
-					</Button>
+					<Project
+						title="Ioy.app"
+						description="Webgames, arts, jams"
+						image="/ioy_banner.png"
+					/>
 				</Link>
 				<Link
 					href="/very-secret-world"
 					className="h-full"
 				>
-					<Button 
-						className="flex flex-col! h-full! w-full! rounded-xl! text-ellipsis! overflow-hidden!"
-						variant="clear"
-					>
-						<Image
-							src="/minecraft.png"
-							width={64}
-							height={64}
-							alt="Minecraft server"
-							className="w-42"
-						/>
-						Minecraft Server
-					</Button>
+					<Project
+						title="Very secret world"
+						description="Minecraft server 26.3"
+						image="/minecraft.png"
+					/>
 				</Link>
 			</div>
+		</ContentBlock>
 	);
 };
 

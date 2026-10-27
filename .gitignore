@@ -22,3 +22,6 @@ next-env.d.ts
 global-bundle.pem
 staged-nolock.diff
 staged.diff
+migrations/
+pnpm-lock.yaml
+pnpm-workspace.yaml
