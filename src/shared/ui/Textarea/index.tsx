@@ -8,14 +8,12 @@ const Textarea: React.FC<{
 }> = ({
 	placeholder,
 	...props
-}) => {
-	return (
-		<textarea
-			className="outline-none border border-br p-2 rounded-2xl text-xl focus:border-second h-42 resize-none"
-			placeholder={placeholder}
-			{...props}
-		/>
-	);
-};
+}) => (
+	<textarea
+		className="outline-none border border-br p-2 rounded-2xl text-xl focus:border-second h-42 resize-none"
+		placeholder={placeholder}
+		{...props}
+	/>
+);
 
 export default Textarea;

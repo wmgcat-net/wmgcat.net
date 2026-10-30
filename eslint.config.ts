@@ -1,10 +1,12 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import importFsdPlugin from "eslint-plugin-import-fsd";
 
 const eslintConfig = defineConfig([
 	...nextVitals,
 	...nextTs,
+	importFsdPlugin.configs.recommended,
 	globalIgnores([
 		".next/**",
 		"out/**",
@@ -12,6 +14,17 @@ const eslintConfig = defineConfig([
 		"next-env.d.ts"
 	]),
 	{
+		plugins: {
+			"import-fsd": importFsdPlugin
+		},
+		settings: {
+			fsd: {
+				rootDir: "./src",
+				aliases: {
+					"@/*": "./src/*"
+				}
+			}
+		},
 		rules: {
 			"quotes": [
 				"error",
@@ -49,7 +62,8 @@ const eslintConfig = defineConfig([
 				"error",
 				"never"
 			],
-			"no-tabs": "off"
+			"no-tabs": "off",
+			"import-fsd/no-denied-layers": "error"
 		}
 	}
 ]);

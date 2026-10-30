@@ -1,4 +1,4 @@
-import PostsList from "@/features/posts-list";
+import { PagePosts } from "@/pages/blog";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -41,10 +41,5 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-	return (
-		<PostsList
-			count={20}
-			fetchNext
-		/>
-	);
+	return <PagePosts />;
 }

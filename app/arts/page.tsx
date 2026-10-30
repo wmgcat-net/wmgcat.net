@@ -1,4 +1,4 @@
-import ArtsList from "@/features/arts-list";
+import { PageArts } from "@/pages/arts";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -48,10 +48,5 @@ export const metadata: Metadata = {
  * Arts list
 */
 export default async function Arts() {
-	return (
-		<ArtsList
-			count={20}
-			fetchNext
-		/>
-	);
+	return <PageArts />
 }

@@ -1,4 +1,4 @@
-import GamesList from "@/features/games-list";
+import { PageGames } from "@/pages/games";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -45,10 +45,5 @@ export const metadata: Metadata = {
  * Games list
 */
 export default async function Games() {
-	return (
-		<GamesList
-			count={20}
-			fetchNext
-		/>
-	);
+	return <PageGames />;
 }

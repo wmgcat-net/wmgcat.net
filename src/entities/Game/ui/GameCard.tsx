@@ -24,8 +24,6 @@ import { Button } from "@/shared/ui";
 */
 const GameCard: React.FC<Game> = ({
 	id,
-	type,
-	author,
 	title,
 	description,
 	created_at,
@@ -38,10 +36,7 @@ const GameCard: React.FC<Game> = ({
 			case "itch": return <SiItchdotio />;
 			default: return <LuGlobe />;
 		}
-		return null;
 	}, []);
-
-
 
 	return (
 		<div className="w-full flex flex-col gap-2 pointer-events-none select-none">

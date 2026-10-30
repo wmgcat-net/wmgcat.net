@@ -5,10 +5,7 @@ import {
 	useRef
 } from "react";
 import useInfiniteList from "../model/infinite-list";
-import {
-	MasonryTable,
-	Spin
-} from "@/shared/ui";
+import { Spin } from "@/shared/ui";
 import { Post } from "@/entities/Post";
 import PostCard from "@/entities/Post/ui/postCard";
 

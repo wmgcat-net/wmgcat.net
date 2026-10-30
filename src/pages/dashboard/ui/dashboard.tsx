@@ -2,8 +2,8 @@
 
 import { Button } from "@/shared/ui";
 import { FormProvider, useForm } from "react-hook-form";
-import Textarea from "./Textarea";
 import useSubmit from "../model/submit";
+import { Textarea } from "@/shared/ui";
 import z from "zod";
 import { postSchema } from "../model/schema";
 import { zodResolver } from "@hookform/resolvers/zod";

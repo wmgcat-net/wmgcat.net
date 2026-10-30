@@ -39,7 +39,8 @@
 		"react-icons": "^5.7.0",
 		"sass": "^1.105.1",
 		"sharp": "^0.35.5",
-		"zod": "^4.6.7"
+		"zod": "^4.6.7",
+		"zustand": "^5.0.16"
 	},
 	"devDependencies": {
 		"@next/env": "^16.4.3",
@@ -52,6 +53,7 @@
 		"babel-plugin-react-compiler": "1.0.0",
 		"eslint": "^9",
 		"eslint-config-next": "16.4.0",
+		"eslint-plugin-import-fsd": "^3.0.4",
 		"husky": "^9.1.7",
 		"tailwindcss": "^4",
 		"typescript": "^5"

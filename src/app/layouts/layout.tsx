@@ -6,8 +6,8 @@ import {
 	QueryClientProvider
 } from "@tanstack/react-query";
 import { useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import AppHeader from "./app-header";
+import AppFooter from "./app-footer";
 
 /**
  * Main layout
@@ -15,17 +15,17 @@ import Footer from "./Footer";
  * @example
  * <LayoutDefault />
 */
-const LayoutDefault: React.FC<{ children?: React.ReactNode; }> = ({ children }) => {
+const Layout: React.FC<{ children?: React.ReactNode; }> = ({ children }) => {
 	const [ query ] = useState(() => new QueryClient());
 
 	return (
 		<QueryClientProvider client={query}>
 			<div className="flex flex-col max-w-full w-4xl items-center flex-1 gap-4">
-				<Header />
+				<AppHeader />
 				<main className="flex-1 flex flex-col gap-4 w-full max-lg:px-6">
 					{children}
 				</main>
-				<Footer
+				<AppFooter
 					onUpClick={() => {
 						window.scrollTo({
 							top: 0,
@@ -38,4 +38,4 @@ const LayoutDefault: React.FC<{ children?: React.ReactNode; }> = ({ children }) 
 	);
 };
 
-export default LayoutDefault;
+export default Layout;
