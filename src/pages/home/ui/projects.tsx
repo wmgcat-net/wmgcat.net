@@ -22,19 +22,9 @@ const Projects: React.FC = () => {
 					className="h-full"
 				>
 					<Project
-						title="Ioy.app"
+						title="ioy.app"
 						description="Webgames, arts, jams"
 						image="/ioy_banner.png"
-					/>
-				</Link>
-				<Link
-					href="/very-secret-world"
-					className="h-full"
-				>
-					<Project
-						title="Very secret world"
-						description="Minecraft server 26.3"
-						image="/minecraft.png"
 					/>
 				</Link>
 			</div>
